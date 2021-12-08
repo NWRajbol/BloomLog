@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bloomlog-deployment
+spec:
+  selector:
+    matchLabels:
+      app: bloomlog
+  template:
+    metadata:
+      labels:
+        app: bloomlog
+    spec:
+      containers:
+      - name: bloomlog
+        image: b9029972/bloomlog:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
