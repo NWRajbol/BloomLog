@@ -21,4 +21,14 @@ jobs:
       run: dotnet build -c Release --no-restore
     - name: Run automated tests
       run: dotnet test -c Release --no-build
+    
+    - name: Build and Push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: b9029972/bloomlog
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+        
 
