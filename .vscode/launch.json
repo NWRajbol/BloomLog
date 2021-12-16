@@ -6,15 +6,15 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/bin/Debug/net6.0/BloomLog.dll",
+            "program": "${workspaceFolder}/BloomLog.Api/bin/Debug/net6.0/BloomLog.Api.dll",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/BloomLog.Api",
             "stopAtEntry": false,
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Views"
+                "/Views": "${workspaceFolder}/BloomLog.Api/views"
             }
         },
         {
@@ -28,7 +28,7 @@
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/BloomLog.csproj"
+                "appProject": "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj"
             }
         }
     ]

@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/BloomLog.csproj",
+                "${workspaceFolder}/build.proj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/BloomLog.csproj",
+                "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/BloomLog.csproj",
+                "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -47,12 +47,12 @@
             "dockerBuild": {
                 "tag": "bloomlog:dev",
                 "target": "base",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "dockerfile": "${workspaceFolder}/BloomLog.Api/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/BloomLog.csproj"
+                "appProject": "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj"
             }
         },
         {
@@ -63,12 +63,12 @@
             ],
             "dockerBuild": {
                 "tag": "bloomlog:latest",
-                "dockerfile": "${workspaceFolder}/Dockerfile",
+                "dockerfile": "${workspaceFolder}/BloomLog.Api/Dockerfile",
                 "context": "${workspaceFolder}",
                 "pull": true
             },
             "netCore": {
-                "appProject": "${workspaceFolder}/BloomLog.csproj"
+                "appProject": "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj"
             }
         },
         {
@@ -79,7 +79,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/BloomLog.csproj",
+                "appProject": "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj",
                 "enableDebugging": true,
                 "configureSsl": false
             }
@@ -92,7 +92,7 @@
             ],
             "dockerRun": {},
             "netCore": {
-                "appProject": "${workspaceFolder}/BloomLog.csproj"
+                "appProject": "${workspaceFolder}/BloomLog.Api/BloomLog.Api.csproj"
             }
         }
     ]
