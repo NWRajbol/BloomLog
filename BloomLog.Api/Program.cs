@@ -12,6 +12,8 @@ using MongoDB.Driver;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddRazorPages();
+
 
 BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
 BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
@@ -19,7 +21,7 @@ var mongoDbSettings = builder.Configuration.GetSection(nameof(MongoDbSettings)).
 
 builder.Services.AddSingleton<IMongoClient>(serviceProvider => 
 {
-    var settings = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
+    
     return new MongoClient(mongoDbSettings.ConnectionString);
 });
 
@@ -57,6 +59,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.MapRazorPages();
 
 app.MapControllers();
 app.MapHealthChecks("/health/ready", new HealthCheckOptions{
